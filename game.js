@@ -33,9 +33,16 @@ const ubahArah = (e) => {
         gerakY = 0
         gerakX = -1
     }
+    suaraKlik ()
 };
+
+const sfxKlik = new Audio('sfxClick.mp3');
+function suaraKlik (){
+    sfxKlik.play()
+    console.log("bisa")
+}
 tombols.forEach(key => {
-    key.addEventListener("click", () => ubahArah({ key: key.dataset.key}))
+    key.addEventListener("click", () => ubahArah({ key: key.dataset.key }))
 });
 
 const jikaGameOver = () => {
