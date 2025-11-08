@@ -386,6 +386,12 @@ body {
   display: flex;
   flex-direction: column;
 }
+@media  (min-width: 320px) and (max-width: 767px) {
+    .gameArea {
+        width: 90vmin;
+        height: 110vmin;
+    }
+}
 
 .gameInfo {
   display: flex;
