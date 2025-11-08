@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>🐍Game Uler</title>
+  </head>
+  <body>
+    <section class="loading-page">
+      <h1>🐍Game Uler</h1>
+      <h2>Athrsyd_Dev Present</h2>
+      <div class="loader"></div>
+    </section>
+
+    <section class="Welcome">
+      <h1>Selamat datang di game Uler-uleran</h1>
+      <p>Game creator : Alif Athaullah Rasyad</p>
+      <button class="start-game">Mulai Game</button>
+      <button class="cara-bermain">Cara Bermain</button>
+    </section>
+    <div class="caraBermain">
+      <h2>Cara Bermain:</h2>
+      <ol>
+        <li>Gunakan tombol panah pada keyboard untuk menggerakkan ular.</li>
+        <li>Kumpulkan makanan untuk membuat ular tumbuh lebih panjang.</li>
+        <li>Hindari menabrak dinding atau tubuh ular sendiri.</li>
+        <li>Capai skor tertinggi dan bersaing dengan teman-temanmu!</li>
+      </ol>
+    </div>
+
+
+        <div class="gameArea" id="game-area">
+            <div class="gameInfo">
+                <span class="score">Skor: 0</span>
+                <span class="high-score">Skor Tertinggi: 0</span>
+            </div>
+            <div class="papanPermainan" id="board"></div>
+        </div>
+
+    <!-- Notifikasi Game Over Custom -->
+    <div class="notif-overlay" id="notif-overlay">
+        <div class="notif-box">
+            <h2>🐍 Game Over!</h2>
+            <p class="notif-skor">Skor Anda: <span id="skor-akhir">0</span></p>
+            <p class="notif-pesan">Klik tombol di bawah untuk kembali ke menu utama</p>
+            <button class="btn-kembali" id="btn-kembali">Kembali ke Menu</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="game.js" defer></script>
+  </body>
+</html>
+
+
