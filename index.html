@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
     <title>🐍Game Uler</title>
   </head>
   <body>
@@ -29,28 +33,33 @@
       </ol>
     </div>
 
-
-        <div class="gameArea" id="game-area">
-            <div class="gameInfo">
-                <span class="score">Skor: 0</span>
-                <span class="high-score">Skor Tertinggi: 0</span>
-            </div>
-            <div class="papanPermainan" id="board"></div>
-        </div>
+    <div class="gameArea" id="game-area">
+      <div class="gameInfo">
+        <span class="score">Skor: 0</span>
+        <span class="high-score">Skor Tertinggi: 0</span>
+      </div>
+      <div class="papanPermainan" id="board"></div>
+      <div class="kontrol">
+        <button data-key = "ArrowLeft"><i class="fa-solid fa-left-long"></i></button>
+        <button data-key = "ArrowUp"><i class="fa-solid fa-up-long"></i></button>
+        <button data-key = "ArrowRight"><i class="fa-solid fa-right-long"></i></button>
+        <button data-key = "ArrowDown"><i class="fa-solid fa-down-long"></i></button>
+      </div>
+    </div>
 
     <!-- Notifikasi Game Over Custom -->
     <div class="notif-overlay" id="notif-overlay">
-        <div class="notif-box">
-            <h2>🐍 Game Over!</h2>
-            <p class="notif-skor">Skor Anda: <span id="skor-akhir">0</span></p>
-            <p class="notif-pesan">Klik tombol di bawah untuk kembali ke menu utama</p>
-            <button class="btn-kembali" id="btn-kembali">Kembali ke Menu</button>
-        </div>
+      <div class="notif-box">
+        <h2>🐍 Game Over!</h2>
+        <p class="notif-skor">Skor Anda: <span id="skor-akhir">0</span></p>
+        <p class="notif-pesan">
+          Klik tombol di bawah untuk kembali ke menu utama
+        </p>
+        <button class="btn-kembali" id="btn-kembali">Kembali ke Menu</button>
+      </div>
     </div>
 
     <script src="script.js"></script>
     <script src="game.js" defer></script>
   </body>
 </html>
-
-

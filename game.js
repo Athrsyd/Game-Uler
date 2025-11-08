@@ -1,6 +1,7 @@
 const papanBermain = document.querySelector(".papanPermainan")
 const skoring = document.querySelector(".score")
 const highSkoring = document.querySelector(".high-score")
+const tombols = document.querySelectorAll(".kontrol button")
 
 let gameOver = false;
 let buahX, buahY;
@@ -33,6 +34,9 @@ const ubahArah = (e) => {
         gerakX = -1
     }
 };
+tombols.forEach(key => {
+    key.addEventListener("click", () => ubahArah({ key: key.dataset.key}))
+});
 
 const jikaGameOver = () => {
     // Ambil elemen yang diperlukan
@@ -111,6 +115,9 @@ const initGame = () => {
     ulerX += gerakX;
     ulerY += gerakY;
     badanSiUler[0] = [ulerX, ulerY]
+
+
+
 
     // game over
     if (ulerX <= 0 || ulerX > 20 || ulerY <= 0 || ulerY > 20) {
