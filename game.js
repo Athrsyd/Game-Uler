@@ -5,12 +5,14 @@ const tombols = document.querySelectorAll(".kontrol button")
 
 let gameOver = false;
 let buahX, buahY;
+let bomX, bomY;
 let ulerX = 5, ulerY = 10;
 let gerakX = 0, gerakY = 0;
 let badanSiUler = [];
 let skor = 0
 let highScore = localStorage.getItem("high-score") || 0;
 highSkoring.innerHTML = `High Score : ${highScore}`
+let posisiBom = [];
 
 // random posisi buah
 const ubahPosisiBuah = () => {
@@ -33,11 +35,11 @@ const ubahArah = (e) => {
         gerakY = 0
         gerakX = -1
     }
-    suaraKlik ()
+    suaraKlik()
 };
 
 const sfxKlik = new Audio('sfxClick.mp3');
-function suaraKlik (){
+function suaraKlik() {
     sfxKlik.play()
     console.log("bisa")
 }
@@ -92,15 +94,30 @@ const jikaGameOver = () => {
     };
 }
 
+function spawnBom() {
+    bomX = Math.floor(Math.random() * 20) + 1;
+    bomY = Math.floor(Math.random() * 20) + 1;
+}
+
 const initGame = () => {
     if (gameOver) return jikaGameOver();
     let htmlPenanda = `<div class="buah" style="grid-area: ${buahY}/${buahX}"></div>`;
+    for (let i = 0; i < posisiBom.length; i++) {
+        htmlPenanda += `<div class="bom" style="grid-area: ${posisiBom[i][1]}/${posisiBom[i][0]}"></div>`;
+    }
 
     // Ubah posisi buah jika terkena kepala
     if (ulerX === buahX && ulerY === buahY) {
         ubahPosisiBuah();
         badanSiUler.push([buahX, buahY])
         console.log(badanSiUler)
+
+        // fungi bom
+        if(badanSiUler.length % 3 === 0){
+            spawnBom();
+            posisiBom.push([bomX,bomY])
+            console.log(posisiBom);
+        }
 
         // sound kena buah
         const sfxBuah = new Audio('sfxBuah.mp3');
@@ -124,7 +141,16 @@ const initGame = () => {
     badanSiUler[0] = [ulerX, ulerY]
 
 
-
+    // Cek tabrakan dengan bom
+    for (let i = 0; i < posisiBom.length; i++) {
+        if (ulerX === posisiBom[i][0] && ulerY === posisiBom[i][1]) {
+            gameOver = true;
+            const sfxGO = new Audio('sfxGO.mp3');
+            sfxGO.play();
+            console.log('Game Over! Kena bom!');
+            break;
+        }
+    }
 
     // game over
     if (ulerX <= 0 || ulerX > 20 || ulerY <= 0 || ulerY > 20) {

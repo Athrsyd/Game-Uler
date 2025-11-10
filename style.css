@@ -420,6 +420,12 @@ body {
   background-color: #ff4757;
   border-radius: 20px;
 }
+.papanPermainan .bom {
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  border-radius: 20px;
+}
 .papanPermainan .kepala {
   width: 100%;
   height: 100%;
