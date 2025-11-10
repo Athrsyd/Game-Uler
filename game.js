@@ -77,6 +77,7 @@ const jikaGameOver = () => {
         gerakX = 0;
         gerakY = 0;
         badanSiUler = [];
+        posisiBom = [];
 
         // Sembunyikan game area
         gameSection.classList.remove('show');
@@ -113,9 +114,9 @@ const initGame = () => {
         console.log(badanSiUler)
 
         // fungi bom
-        if(badanSiUler.length % 3 === 0){
+        if (badanSiUler.length % 3 === 0) {
             spawnBom();
-            posisiBom.push([bomX,bomY])
+            posisiBom.push([bomX, bomY])
             console.log(posisiBom);
         }
 
@@ -145,8 +146,8 @@ const initGame = () => {
     for (let i = 0; i < posisiBom.length; i++) {
         if (ulerX === posisiBom[i][0] && ulerY === posisiBom[i][1]) {
             gameOver = true;
-            const sfxGO = new Audio('sfxGO.mp3');
-            sfxGO.play();
+            const sfxBom = new Audio('sfxBom.mp3');
+            sfxBom.play();
             console.log('Game Over! Kena bom!');
             break;
         }
